@@ -24,6 +24,7 @@ writeMess("Hello, day la doi so");
 // Tạo thử 1 hàm giống console
 function writeLog(){
     var result='';
+    // giống foreach bên java
     for(var param of arguments){
         result += ` ${param}`;
     }
