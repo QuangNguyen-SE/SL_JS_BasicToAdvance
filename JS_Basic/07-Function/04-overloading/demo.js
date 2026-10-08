@@ -27,3 +27,8 @@ function func1(){
     func2();
 }
 func1();
+
+
+
+// Kĩ thuật overloading 
+// Về cơ bản là 2 hàm trùng tên nhau nhưng khác tham số truyền vâo
