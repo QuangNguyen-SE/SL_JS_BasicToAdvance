@@ -3,6 +3,7 @@
  * 1. Declaration function
  * 2. Expression Function
  * 3. Arrow Function
+ * 4. Callback Function (hàm này gọi hàm kia)
  */
 
 
