@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String-P01</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="demo.js" defer></script>
+</head>
+<body>
+    <h1>Test: "Count how many time that words appear in a sentence"</h1>
+    <div>
+        <h3>Sentences here</h3>
+        <textarea id="st" cols="40" rows="3" maxlength="100" required></textarea>
+    </div>
+    <div>
+        <h3>Search words:</h3>
+        <input type="text" class="" id="userInput" required onerror="alert('Khai báo bị lỗi')">
+        <button onclick="handleClick()">Search</button>
+        <br/>
+        <h3>Results: <span id="rs"></span></h3>
+    </div>
+</body>
+</html>
