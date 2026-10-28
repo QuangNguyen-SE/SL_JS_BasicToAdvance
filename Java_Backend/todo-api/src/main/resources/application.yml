@@ -1,0 +1,23 @@
+server:
+  port: ${PORT:8081}   # Doi so 8081 thanh cong khac, hoac dat bien moi truong PORT
+
+spring:
+  application:
+    name: todo-api
+  # Mac dinh dung H2 (luu file trong ./data) de chay ngay khong can cai DB.
+  # Doi sang PostgreSQL: chay voi profile "postgres" (xem README).
+  datasource:
+    url: jdbc:h2:file:./data/tododb
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update   # Hoc tap thi tien. Production: dung "validate" + Flyway/Liquibase
+    open-in-view: false
+
+app:
+  jwt:
+    # BAT BUOC doi qua bien moi truong JWT_SECRET khi deploy (>= 32 ky tu). Khong commit secret that len Git.
+    secret: ${JWT_SECRET:dev-only-secret-change-me-dev-only-secret-change-me}
+    expiration-minutes: 60
+  seed-admin: true       # Tao tai khoan admin/admin123 de thu phan quyen. Tat khi deploy.
