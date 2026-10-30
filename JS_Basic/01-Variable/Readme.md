@@ -47,6 +47,49 @@ user = {}; // Lỗi: Assignment to constant variable.
 
 - Nên ưu tiên dùng `const` mặc định, chỉ chuyển sang `let` khi thực sự cần gán lại giá trị.
 
+## 4. `using` (mới)
+
+```js
+{
+  using file = openFile("a.txt");
+  doSomething(file);
+} // ra khỏi block, file tự được đóng, kể cả khi có lỗi
+```
+
+- Là kiểu khai báo mới thuộc đề xuất *Explicit Resource Management*, dùng để **tự động dọn dẹp tài nguyên** (file, kết nối database, lock...) khi biến ra khỏi scope. Tương tự `try-with-resources` của Java hoặc `using` của C#.
+- **Phạm vi (scope):** block-scope, giống `const`.
+- **Gán lại giá trị:** không cho phép (hoạt động như `const`).
+- Giá trị phải là object có method `[Symbol.dispose]()` (hoặc `null`/`undefined`). Khi scope kết thúc, JS tự gọi method này:
+
+```js
+function openConn() {
+  return {
+    query() { /* ... */ },
+    [Symbol.dispose]() { console.log("đã đóng kết nối"); }
+  };
+}
+
+{
+  using conn = openConn();
+  conn.query();
+  console.log("xong việc");
+}
+// In ra: xong việc
+//        đã đóng kết nối
+```
+
+- Nếu việc dọn dẹp cần `await`, dùng `await using` với method `[Symbol.asyncDispose]()`:
+
+```js
+async function main() {
+  await using db = await connectDB();
+  await db.query("...");
+} // tự await db[Symbol.asyncDispose]()
+```
+
+- Nhiều biến `using` trong cùng scope được dọn theo thứ tự **ngược** với lúc khai báo; việc dọn dẹp vẫn chạy khi có `return` hoặc `throw`.
+- Lưu ý: tính năng khá mới, chỉ có trên các bản gần đây của Chrome và Node. Cần kiểm tra phiên bản đang dùng, hoặc biên dịch bằng Babel/TypeScript (5.2 trở lên).
+
 ## So sánh nhanh
 
 | Đặc điểm            | `var`            | `let`         | `const`       |
