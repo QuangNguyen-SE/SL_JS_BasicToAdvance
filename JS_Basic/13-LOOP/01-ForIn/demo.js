@@ -30,8 +30,10 @@ var obj = {
 
 console.clear();
 for(let i in obj){ 
-    // i ở đây chính là chuỗi
+    // i ở đây chính là chuỗi 'name'
     console.log(i, obj[i]);
+    // vì vậy obj ko thể chấm gọi property đc vì nó đang đc xem là biến chuỗi.
+    // obj.'name' là sai
 }
 
 /*

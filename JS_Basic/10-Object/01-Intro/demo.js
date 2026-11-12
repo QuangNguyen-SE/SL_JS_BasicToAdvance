@@ -17,8 +17,11 @@ var myInfo = {
 // có 2 cách
 //Cách 1:
 console.log(myInfo.name);
+
 //Cách 2: dùng [] và bên trong tên của key là chuỗi ''
 console.log(myInfo['name']);
+
+// tên property cố định thì dùng dấu chấm, tên nằm trong biến thì dùng []
 //----------------------------------------------------------------------------//
 
 console.log('Truoc khi tao 1 thuoc tinh moi:');
