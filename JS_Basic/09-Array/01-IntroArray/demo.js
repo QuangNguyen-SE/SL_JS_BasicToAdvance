@@ -1,5 +1,5 @@
 /*
-Mảng trong JS - Array
+Mảng trong JS - Array luôn là mảng động
 
 1. Tạo mảng
     - Cách tạo 
@@ -36,3 +36,8 @@ var lang = [
 console.log(lang);
 console.log(lang.length);
 console.log(lang[0]);
+
+
+var arr = new Array(5); // khai báo mảng có 5 phần tử, nhưng chưa gán
+// Nhưng ngta sẽ ko dùng, bởi vì mảng trong js luôn mà mảng động, nên chỉ cần
+// khai báo var arr = []
