@@ -8,5 +8,6 @@ arr.forEach((value,index)=>{
 })
 
 // forEach cũng dùng đc với obj nhưng cực hơn nhưng ko nên
+// forEach sẽ bỏ qua giá trị return, break,... 
 
 
