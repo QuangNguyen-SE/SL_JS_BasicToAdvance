@@ -24,11 +24,13 @@ console.log(myInfo['name']);
 // tên property cố định thì dùng dấu chấm, tên nằm trong biến thì dùng []
 //----------------------------------------------------------------------------//
 
+
 console.log('Truoc khi tao 1 thuoc tinh moi:');
 console.log(myInfo);
 
 // Gán 1 key mới cho obj đã đc khai báo trước đó
 myInfo.address = 'SaiGon';
+myInfo['isHuman'] = true;
 console.log('Sau khi tao them thuoc tinh moi: ');
 console.log(myInfo);
 
